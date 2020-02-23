@@ -26,7 +26,7 @@ services:
         - POSTGRES_USER=postgres
         - POSTGRES_PASSWORD=postgres
         - SECRET_KEY=p_o3vp1rg5)t^lxm9-43%0)s-=1qpeq%o7gfq+e4#*!t+_ev82
-        - DEBUG=0
+        - DEBUG=False
 
 volumes:
   postgres_data:
