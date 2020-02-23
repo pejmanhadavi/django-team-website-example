@@ -21,7 +21,7 @@ services:
     depends_on:
       - db
     environment:
-        - DJANGO_SETTINGS_MODULE=settings.production-docker
+        - DJANGO_SETTINGS_MODULE=config.settings.production-docker
         - POSTGRES_DB=postgres
         - POSTGRES_USER=postgres
         - POSTGRES_PASSWORD=postgres
