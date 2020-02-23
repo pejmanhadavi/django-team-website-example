@@ -96,4 +96,4 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = ''
+MEDIA_ROOT = 'media'
