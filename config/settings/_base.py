@@ -15,7 +15,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #local
+    # Dev
+    'debug_toolbar',
+
+    #Local
     'apps.core.apps.CoreConfig',
     'apps.blog.apps.BlogConfig',
     'apps.portfolio.apps.PortfolioConfig',
@@ -30,6 +33,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Dev
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -100,3 +106,8 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '../media'
+
+# django-debug-toolbar
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
