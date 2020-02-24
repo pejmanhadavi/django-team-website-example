@@ -130,7 +130,7 @@ class Review(models.Model):
         null=False,
         verbose_name=_('author'))
     review = models.CharField(
-        max_length=255,
+        max_length=512,
         blank=False,
         null=False,
         verbose_name=_('review'))
@@ -140,7 +140,7 @@ class Review(models.Model):
         blank=True,
         null=True,
         related_name='reviews',
-        verbose_name=_('author'))
+        verbose_name=_('reply'))
     created_at = models.DateTimeField(
         blank=False,
         null=False,
@@ -150,6 +150,10 @@ class Review(models.Model):
         default=False,
         null=False,
         verbose_name=_('published'))
+    readed = models.BooleanField(
+        default=False,
+        null=False,
+        verbose_name=_('readed'))
 
     class Meta:
         verbose_name = _('review')
