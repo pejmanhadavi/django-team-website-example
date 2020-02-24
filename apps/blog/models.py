@@ -71,6 +71,10 @@ class Article(models.Model):
         blank=False,
         null=False,
         verbose_name=_('body'))
+    published = models.BooleanField(
+        default=False,
+        null=False,
+        verbose_name=_('published'))
     created_at = models.DateTimeField(
         blank=False,
         null=False,
