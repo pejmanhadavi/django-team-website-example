@@ -16,7 +16,7 @@ class Category(models.Model):
         null=False,
         allow_unicode=True,
         verbose_name=_('slug'))
-    
+
     class Meta:
         verbose_name = _('category')
         verbose_name_plural = _('categories')
@@ -58,7 +58,7 @@ class Article(models.Model):
         on_delete=models.CASCADE,
         related_name='articles',
         verbose_name=_('author'))
-    
+
     image = models.ImageField(
         upload_to='articles/images/',
         blank=True)
@@ -81,10 +81,10 @@ class Article(models.Model):
         null=True,
         auto_now=True,
         verbose_name=_('updated at'))
-    
+
     class Meta:
-        verbose_name = 'article'
-        verbose_name_plural = 'articles'
+        verbose_name = _('article')
+        verbose_name_plural = _('articles')
         indexes = [
             models.Index(
                 fields=[
@@ -94,8 +94,9 @@ class Article(models.Model):
                     'image',
                     'updated_at',
                     'author',
-                    'category'],
-                    name='article_index'),
+                    'category'
+                ],
+                name='article_index'),
         ]
         ordering = ['-updated_at']
 
@@ -104,3 +105,52 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog_single', kwargs={'slug': self.slug})
+
+
+class Review(models.Model):
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        related_name='reviews',
+        blank=False,
+        null=False,
+        verbose_name=_('article'))
+    email = models.EmailField(
+        max_length=256,
+        blank=False,
+        null=False,
+        verbose_name=_('email'))
+    author = models.CharField(
+        max_length=128,
+        blank=False,
+        null=False,
+        verbose_name=_('author'))
+    review = models.CharField(
+        max_length=255,
+        blank=False,
+        null=False,
+        verbose_name=_('review'))
+    reply_to = models.ForeignKey(
+        'self',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        related_name='reviews',
+        verbose_name=_('author'))
+    created_at = models.DateTimeField(
+        blank=False,
+        null=False,
+        auto_now_add=True,
+        verbose_name=_('created at'))
+    published = models.BooleanField(
+        default=False,
+        null=False,
+        verbose_name=_('published'))
+
+    class Meta:
+        verbose_name = _('review')
+        verbose_name_plural = _('reviews')
+        ordering = ['-created_at']
+
+    def __str__(self):
+        return self.review
