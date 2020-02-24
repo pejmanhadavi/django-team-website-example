@@ -17,6 +17,7 @@ INSTALLED_APPS = [
 
     #local
     'apps.core.apps.CoreConfig',
+    'apps.blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
