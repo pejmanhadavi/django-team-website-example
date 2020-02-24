@@ -10,15 +10,20 @@ class Category(models.Model):
         null=False,
         unique=True,
         verbose_name=_('title'))
-    image = models.ImageField(
-        upload_to='articles/images/',
-        blank=True)
     slug = models.SlugField(
         max_length=128,
         blank=False,
         null=False,
         allow_unicode=True,
         verbose_name=_('slug'))
+    
+    class Meta:
+        verbose_name = _('category')
+        verbose_name_plural = _('categories')
+        indexes = [
+            models.Index(fields=['name', 'slug'], name='category_index'),
+        ]
+        ordering = ['name']
 
     def __str__(self):
         return self.name
@@ -53,6 +58,10 @@ class Article(models.Model):
         on_delete=models.CASCADE,
         related_name='articles',
         verbose_name=_('author'))
+    
+    image = models.ImageField(
+        upload_to='articles/images/',
+        blank=True)
     description = models.TextField(
         max_length=256,
         blank=False,
@@ -72,3 +81,26 @@ class Article(models.Model):
         null=True,
         auto_now=True,
         verbose_name=_('updated at'))
+    
+    class Meta:
+        verbose_name = 'article'
+        verbose_name_plural = 'articles'
+        indexes = [
+            models.Index(
+                fields=[
+                    'title',
+                    'slug',
+                    'description',
+                    'image',
+                    'updated_at',
+                    'author',
+                    'category'],
+                    name='article_index'),
+        ]
+        ordering = ['-updated_at']
+
+    def __str__(self):
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('blog_single', kwargs={'slug': self.slug})
