@@ -18,6 +18,8 @@ INSTALLED_APPS = [
     #local
     'apps.core.apps.CoreConfig',
     'apps.blog.apps.BlogConfig',
+    'apps.portfolio.apps.PortfolioConfig',
+    'apps.video.apps.VideoConfig',
 ]
 
 MIDDLEWARE = [
