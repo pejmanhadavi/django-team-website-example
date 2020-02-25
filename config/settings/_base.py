@@ -119,7 +119,8 @@ INTERNAL_IPS = [
 
 # ckeditor settings
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
-CKEDITOR_UPLOAD_PATH = "media/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "ckeditor/"
+CKEDITOR_FORCE_JPEG_COMPRESSION = True
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Full',
