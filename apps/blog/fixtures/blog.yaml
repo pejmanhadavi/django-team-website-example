@@ -14,3 +14,26 @@
   fields:
     name: category 3
     slug: category_3
+
+# User
+- model: auth.user
+  pk: 2
+  fields:
+    username: pejmanhadavi
+    first_name: Pejman
+    last_name: Hadavi
+    email: pejman@gmail.com
+- model: auth.user
+  pk: 3
+  fields:
+    username: navabrahimi
+    first_name: Navab
+    last_name: Rahimi
+    email: navab@gmail.com
+- model: auth.user
+  pk: 4
+  fields:
+    username: hamzezare
+    first_name: Hamze
+    last_name: Zare
+    email: hamze@gmail.com
