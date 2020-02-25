@@ -2,6 +2,8 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 
+from ckeditor.fields import RichTextField
+
 
 class Category(models.Model):
     name = models.CharField(
@@ -67,10 +69,11 @@ class Article(models.Model):
         blank=False,
         null=False,
         verbose_name=_('description'))
-    body = models.TextField(
-        blank=False,
-        null=False,
-        verbose_name=_('body'))
+    # body = models.TextField(
+    #     blank=False,
+    #     null=False,
+    #     verbose_name=_('body'))
+    body = RichTextField()
     published = models.BooleanField(
         default=False,
         null=False,

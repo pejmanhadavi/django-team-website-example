@@ -17,6 +17,9 @@ INSTALLED_APPS = [
 
     # Dev
     'debug_toolbar',
+    
+    # 3th party
+    'ckeditor',
 
     #Local
     'apps.core.apps.CoreConfig',
@@ -104,6 +107,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, '../static'),
 ]
 
+# STATIC_ROOT = 'static'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '../media'
 
@@ -111,3 +116,14 @@ MEDIA_ROOT = '../media'
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+# ckeditor settings
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "media/ckeditor/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Full',
+        'height': 300,
+        'width': 610,
+    },
+}

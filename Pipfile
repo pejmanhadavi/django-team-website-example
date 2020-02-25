@@ -12,6 +12,7 @@ django = "*"
 psycopg2-binary = "*"
 django-dotenv = "*"
 pillow = "*"
+django-ckeditor = "*"
 
 [requires]
 python_version = "3.8"
