@@ -1,6 +1,8 @@
 from django.contrib import admin
 from apps.blog.models import Category, Article, Review
 
+from image_cropping import ImageCroppingMixin
+
 
 class ReviewInline(admin.TabularInline):
     model = Review
@@ -10,7 +12,7 @@ class ReviewInline(admin.TabularInline):
 
 
 @admin.register(Article)
-class ArticleAdmin(admin.ModelAdmin):
+class ArticleAdmin(ImageCroppingMixin, admin.ModelAdmin):
     inlines = [
         ReviewInline
     ]

@@ -20,6 +20,8 @@ INSTALLED_APPS = [
     
     # 3th party
     'ckeditor',
+    'easy_thumbnails',
+    'image_cropping',
 
     #Local
     'apps.core.apps.CoreConfig',
@@ -128,3 +130,11 @@ CKEDITOR_CONFIGS = {
         'width': 610,
     },
 }
+
+# image cropping settings
+
+from easy_thumbnails.conf import Settings as thumbnail_settings
+THUMBNAIL_PROCESSORS = (
+    'image_cropping.thumbnail_processors.crop_corners',
+) + thumbnail_settings.THUMBNAIL_PROCESSORS
+

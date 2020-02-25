@@ -13,6 +13,7 @@ psycopg2-binary = "*"
 django-dotenv = "*"
 pillow = "*"
 django-ckeditor = "*"
+django-image-cropping = "*"
 
 [requires]
 python_version = "3.8"

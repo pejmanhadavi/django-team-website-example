@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "1e8bd2f07ec1a6cb23a70559ce0b2e893aae31a0faa36ba9dd75e2582abbdc20"
+            "sha256": "86dbd96def57bada049b126d19be492d19e188d3822723fa66c84fd77f801519"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -31,6 +31,13 @@
             "index": "pypi",
             "version": "==3.0.3"
         },
+        "django-appconf": {
+            "hashes": [
+                "sha256:35f13ca4d567f132b960e2cd4c832c2d03cb6543452d34e29b7ba10371ba80e3",
+                "sha256:c98a7af40062e996b921f5962a1c4f3f0c979fa7885f7be4710cceb90ebe13a6"
+            ],
+            "version": "==1.0.3"
+        },
         "django-ckeditor": {
             "hashes": [
                 "sha256:71c3c7bb46b0cbfb9712ef64af0d2a406eab233f44ecd7c42c24bdfa39ae3bde",
@@ -46,6 +53,13 @@
             ],
             "index": "pypi",
             "version": "==1.4.2"
+        },
+        "django-image-cropping": {
+            "hashes": [
+                "sha256:5c102d87bc66de025517ad06e485c100f73313ebf725e7482a728944276f6463"
+            ],
+            "index": "pypi",
+            "version": "==1.3.0"
         },
         "django-js-asset": {
             "hashes": [
@@ -126,6 +140,13 @@
                 "sha256:b02c06db6cf09c12dd25137e563b31700d3b80fcc4ad23abb7a315f2789819be"
             ],
             "version": "==2019.3"
+        },
+        "six": {
+            "hashes": [
+                "sha256:236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a",
+                "sha256:8f3cd2e254d8f793e7f3d6d9df77b92252b52637291d0f0da013c76ea2724b6c"
+            ],
+            "version": "==1.14.0"
         },
         "sqlparse": {
             "hashes": [

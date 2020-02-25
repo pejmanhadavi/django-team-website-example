@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
 
 from ckeditor_uploader.fields import RichTextUploadingField
+from image_cropping import ImageRatioField
 
 
 class Category(models.Model):
@@ -64,6 +65,7 @@ class Article(models.Model):
     image = models.ImageField(
         upload_to='articles/images/',
         blank=True)
+    cropping = ImageRatioField('image', '750x300')
     description = models.TextField(
         max_length=256,
         blank=False,
