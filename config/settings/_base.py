@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'easy_thumbnails',
     'image_cropping',
+    'django_seed',
 
     #Local
     'apps.core.apps.CoreConfig',

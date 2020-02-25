@@ -14,6 +14,7 @@ django-dotenv = "*"
 pillow = "*"
 django-ckeditor = "*"
 django-image-cropping = "*"
+django-seed = "*"
 
 [requires]
 python_version = "3.8"
