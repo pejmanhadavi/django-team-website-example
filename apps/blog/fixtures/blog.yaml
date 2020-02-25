@@ -1,0 +1,16 @@
+# Category
+- model: blog.category
+  pk: 1
+  fields:
+    name: category 1
+    slug: category_1
+- model: blog.category
+  pk: 2
+  fields:
+    name: category 2
+    slug: category_2
+- model: blog.category
+  pk: 3
+  fields:
+    name: category 3
+    slug: category_3
