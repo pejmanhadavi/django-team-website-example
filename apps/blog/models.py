@@ -70,10 +70,11 @@ class Article(models.Model):
         null=False,
         verbose_name=_('description'))
     # body = models.TextField(
-    #     blank=False,
-    #     null=False,
-    #     verbose_name=_('body'))
-    body = RichTextUploadingField()
+    
+    body = RichTextUploadingField(
+        blank=False,
+        null=False,
+        verbose_name=_('body'))
     published = models.BooleanField(
         default=False,
         null=False,
