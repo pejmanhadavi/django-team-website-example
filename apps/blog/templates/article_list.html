@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <h2 class="card-title">{{ article.title }}</h2>
                     <p class="card-text">{{ article.description }}</p>
-                    <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                    <a href="{{ article.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
                     Posted on {{ article.created_at }} by
@@ -66,8 +66,8 @@
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search for...">
                         <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Go!</button>
-              </span>
+                            <button class="btn btn-secondary" type="button">Go!</button>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                             <ul class="list-unstyled mb-0">
                                 {% for category in category_list %}
                                 <li>
-                                    <a href="#">{{ category.name }}</a>
+                                    <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
                                 </li>
                                 {% endfor %}
                             </ul>
