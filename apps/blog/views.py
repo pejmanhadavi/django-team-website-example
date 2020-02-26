@@ -1,6 +1,8 @@
 from django.views.generic import ListView, DetailView
+from django.views.generic.edit import FormMixin
 
 from apps.blog.models import Category, Article, Review
+from apps.blog.forms import ReviewForm
 
 
 class ArticleListView(ListView):
@@ -18,10 +20,11 @@ class ArticleListView(ListView):
         return context
 
 
-class ArticleDetailView(DetailView):
+class ArticleDetailView(FormMixin, DetailView):
     model = Article
     context_object_name = 'article'
     template_name = 'article_single.html'
+    form_class = ReviewForm
 
     def get_context_data(self, **kwargs):
         context = super(ArticleDetailView, self).get_context_data(**kwargs)
@@ -29,9 +32,25 @@ class ArticleDetailView(DetailView):
         article = Article.objects.filter(slug=slug, published=True).first()
         context.update({
             'category_list': Category.objects.order_by('name'),
-            'review_list': Review.objects.filter(article=article.id, published=True, readed=True)
+            'review_list': Review.objects.filter(article=article.id, published=True, readed=True),
+            'review_form': ReviewForm(initial={'article': self.object.id })
         })
         return context
+    
+    def get_success_url(self):
+        return reverse('article_single', kwargs={'slug': self.object.slug})
+    
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        form.save()
+        return super(ParticularPost, self).form_valid(form)
 
 
 class ArticleCategoryView(ListView):
