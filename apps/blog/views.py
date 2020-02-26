@@ -16,6 +16,7 @@ class ArticleListView(ListView):
         })
         return context
 
+
 class ArticleDetailView(DetailView):
     model = Article
     context_object_name = 'article'
@@ -27,3 +28,25 @@ class ArticleDetailView(DetailView):
             'category_list': Category.objects.order_by('name'),
         })
         return context
+
+
+class ArticleCategoryView(ListView):
+    model = Article
+    context_object_name = 'article_list'
+    template_name = 'article_list.html'
+    paginate_by = 4
+
+    def get_context_data(self, **kwargs):
+        context = super(ArticleCategoryView, self).get_context_data(**kwargs)
+        context.update({
+            'category_list': Category.objects.order_by('name'),
+        })
+        return context
+
+    def get_queryset(self, *args, **kwargs):
+        queryset = Article.objects.all()
+        slug = self.kwargs['slug']
+        if slug:
+            category = Category.objects.filter(slug=slug).first()
+            queryset = queryset.filter(category=category.id)
+        return queryset
