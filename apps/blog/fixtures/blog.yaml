@@ -130,3 +130,49 @@
     published: True
     created_at: '2013-03-16T17:41:28+00:00'
     updated_at: '2014-03-16T17:41:28+00:00'
+
+# Review
+- model: blog.review
+  pk: 1
+  fields:
+    article: 1
+    email: example@example.com
+    author: Pejman Hadavi
+    review: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+    reply_to: null
+    created_at: '2011-01-16T17:41:28+00:00'
+    published: True
+    readed: True
+- model: blog.review
+  pk: 2
+  fields:
+    article: 1
+    email: example@example.com
+    author: Hamze Zare
+    review: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+    reply_to: null
+    created_at: '2019-01-16T17:41:28+00:00'
+    published: True
+    readed: True
+- model: blog.review
+  pk: 3
+  fields:
+    article: 1
+    email: example@example.com
+    author: Navab Rahimi
+    review: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+    reply_to: 1
+    created_at: '2018-01-16T17:41:28+00:00'
+    published: True
+    readed: True
+- model: blog.review
+  pk: 4
+  fields:
+    article: 1
+    email: example@example.com
+    author: Peyman Hadavi
+    review: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+    reply_to: null
+    created_at: '2017-01-16T17:41:28+00:00'
+    published: True
+    readed: False
