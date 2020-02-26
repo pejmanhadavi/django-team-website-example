@@ -113,7 +113,7 @@ STATICFILES_DIRS = [
 # STATIC_ROOT = 'static'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '../media'
+MEDIA_ROOT = 'media'
 
 # django-debug-toolbar
 INTERNAL_IPS = [
