@@ -8,6 +8,7 @@ class ArticleListView(ListView):
     context_object_name = 'article_list'
     template_name = 'article_list.html'
     paginate_by = 4
+    queryset = Article.objects.filter(published=True).order_by('-updated_at')
 
     def get_context_data(self, **kwargs):
         context = super(ArticleListView, self).get_context_data(**kwargs)
@@ -24,8 +25,11 @@ class ArticleDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(ArticleDetailView, self).get_context_data(**kwargs)
+        slug = self.kwargs['slug']
+        article = Article.objects.filter(slug=slug, published=True).first()
         context.update({
             'category_list': Category.objects.order_by('name'),
+            'review_list': Review.objects.filter(article=article.id, published=True, readed=True)
         })
         return context
 
@@ -48,5 +52,5 @@ class ArticleCategoryView(ListView):
         slug = self.kwargs['slug']
         if slug:
             category = Category.objects.filter(slug=slug).first()
-            queryset = queryset.filter(category=category.id)
+            queryset = queryset.filter(published=True, category=category.id)
         return queryset
