@@ -1,9 +1,11 @@
 from django.urls import path
 from django.views.generic import TemplateView
 
+from apps.blog.views import ArticleListView
+
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='blog_list.html'), name='blog_list'),
-    path('single/', TemplateView.as_view(template_name='blog_single.html'), name='blog_single'),
-    path('category/', TemplateView.as_view(template_name='blog_list.html'), name='blog_category')
+    path('', ArticleListView.as_view(), name='article_list'),
+    path('single/', TemplateView.as_view(template_name='article_single.html'), name='article_single'),
+    path('category/', TemplateView.as_view(template_name='article_list.html'), name='article_category')
 ]

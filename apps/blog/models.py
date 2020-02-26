@@ -32,7 +32,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('blog_category', kwargs={'slug': self.slug})
+        return reverse('article_category', kwargs={'slug': self.slug})
 
 
 class Article(models.Model):
@@ -114,7 +114,7 @@ class Article(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog_single', kwargs={'slug': self.slug})
+        return reverse('article_single', kwargs={'slug': self.slug})
 
 
 class Review(models.Model):
