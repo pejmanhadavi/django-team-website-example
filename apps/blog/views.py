@@ -60,6 +60,10 @@ class ArticleDetailView(FormMixin, DetailView):
         review.save()
         messages.success(self.request, _('Your review submited successfuly!'))
         return super(ArticleDetailView, self).form_valid(form)
+    
+    def form_invalid(self, form):
+        messages.error(self.request, _('Captcha error.'))
+        return super(ArticleDetailView, self,).form_invalid(form)
 
 
 class ArticleCategoryView(ListView):
