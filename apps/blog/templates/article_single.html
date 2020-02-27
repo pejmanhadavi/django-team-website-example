@@ -38,7 +38,7 @@
             <div class="card my-4">
                 <h5 class="card-header">Leave a Comment:</h5>
                 <div class="card-body">
-                    <form>
+                    <form action="{{ article.get_absolute_ur }}" method='post'>
                         <div class="form-group">
                             {% csrf_token %}
                             {{ review_form|crispy }}

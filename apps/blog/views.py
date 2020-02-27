@@ -1,5 +1,6 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormMixin
+from django.urls import reverse
 
 from apps.blog.models import Category, Article, Review
 from apps.blog.forms import ReviewForm
@@ -10,7 +11,7 @@ class ArticleListView(ListView):
     context_object_name = 'article_list'
     template_name = 'article_list.html'
     paginate_by = 4
-    queryset = Article.objects.filter(published=True).order_by('-updated_at')
+    queryset = Article.objects.filter(published=True).order_by('-created_at')
 
     def get_context_data(self, **kwargs):
         context = super(ArticleListView, self).get_context_data(**kwargs)
@@ -50,7 +51,7 @@ class ArticleDetailView(FormMixin, DetailView):
 
     def form_valid(self, form):
         form.save()
-        return super(ParticularPost, self).form_valid(form)
+        return super(ArticleDetailView, self).form_valid(form)
 
 
 class ArticleCategoryView(ListView):

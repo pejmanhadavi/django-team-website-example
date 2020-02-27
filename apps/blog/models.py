@@ -109,7 +109,7 @@ class Article(models.Model):
                 ],
                 name='article_index'),
         ]
-        ordering = ['-updated_at']
+        ordering = ['-created_at']
 
     def __str__(self):
         return self.title
@@ -136,7 +136,7 @@ class Review(models.Model):
         blank=False,
         null=False,
         verbose_name=_('author'))
-    review = models.CharField(
+    review = models.TextField(
         max_length=512,
         blank=False,
         null=False,
