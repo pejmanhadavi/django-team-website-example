@@ -50,7 +50,12 @@ class ArticleDetailView(FormMixin, DetailView):
             return self.form_invalid(form)
 
     def form_valid(self, form):
-        form.save()
+        review = Review()
+        review.article = self.object
+        review.author = form.cleaned_data['author']
+        review.email = form.cleaned_data['email']
+        review.review = form.cleaned_data['review']
+        review.save()
         return super(ArticleDetailView, self).form_valid(form)
 
 
