@@ -1,6 +1,8 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import FormMixin
 from django.urls import reverse
+from django.contrib import messages
+from django.utils.translation import gettext_lazy as _
 
 from apps.blog.models import Category, Article, Review
 from apps.blog.forms import ReviewForm
@@ -56,6 +58,7 @@ class ArticleDetailView(FormMixin, DetailView):
         review.email = form.cleaned_data['email']
         review.review = form.cleaned_data['review']
         review.save()
+        messages.success(self.request, _('Your review submited successfuly!'))
         return super(ArticleDetailView, self).form_valid(form)
 
 
