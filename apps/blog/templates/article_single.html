@@ -1,4 +1,4 @@
-{% extends '_base.html' %} {% load cropping %} {% block content %}
+{% extends '_base.html' %} {% load cropping %} {% load crispy_forms_tags %} {% block content %}
 
 <!-- Page Content -->
 <div class="container">
@@ -40,7 +40,8 @@
                 <div class="card-body">
                     <form>
                         <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                            {% csrf_token %}
+                            {{ review_form|crispy }}
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

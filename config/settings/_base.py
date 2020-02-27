@@ -23,6 +23,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'image_cropping',
     'django_seed',
+    'crispy_forms',
 
     #Local
     'apps.core.apps.CoreConfig',
@@ -139,3 +140,5 @@ THUMBNAIL_PROCESSORS = (
     'image_cropping.thumbnail_processors.crop_corners',
 ) + thumbnail_settings.THUMBNAIL_PROCESSORS
 
+# django-crispy-forms
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
