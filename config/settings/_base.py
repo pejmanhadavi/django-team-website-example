@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'image_cropping',
     'django_seed',
     'crispy_forms',
+    'captcha',
 
     #Local
     'apps.core.apps.CoreConfig',

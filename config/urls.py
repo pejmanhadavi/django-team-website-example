@@ -22,6 +22,11 @@ urlpatterns = [
 # Set media files as static files
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+# captcha
+urlpatterns += [
+    path('captcha/', include('captcha.urls')),
+]
+
 # Set debug toolbar in debug mode
 if settings.DEBUG:
     import debug_toolbar
