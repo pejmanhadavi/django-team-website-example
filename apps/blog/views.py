@@ -93,7 +93,6 @@ class ArticleSearchView(ListView):
     model = Article
     context_object_name = 'article_list'
     template_name = 'article_list.html'
-    paginate_by = 4
 
     def get_context_data(self, **kwargs):
         context = super(ArticleSearchView, self).get_context_data(**kwargs)

@@ -13,55 +13,53 @@
             </h1>
 
             <!-- Blog Post -->
-            
-            {% if article_list %}
-                
-            
-                {% for article in article_list %}
-                    <div class="card mb-4">
-                        <img class="card-img-top" src="{% cropped_thumbnail article 'cropping' scale=0.5 %}" alt="{{ article.title }}">
-                        <div class="card-body">
-                            <h2 class="card-title">{{ article.title }}</h2>
-                            <p class="card-text">{{ article.description }}</p>
-                            <a href="{{ article.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
-                        </div>
-                        <div class="card-footer text-muted">
-                            Posted on {{ article.created_at }} by
-                            <a href="#">{{ article.author }}</a>
-                        </div>
-                    </div>
 
-                    <ul class="pagination justify-content-center mb-4">
-                    <li class="page-item
+            {% if article_list %}
+
+
+            {% for article in article_list %}
+            <div class="card mb-4">
+                <img class="card-img-top" src="{% cropped_thumbnail article 'cropping' scale=0.5 %}"
+                    alt="{{ article.title }}">
+                <div class="card-body">
+                    <h2 class="card-title">{{ article.title }}</h2>
+                    <p class="card-text">{{ article.description }}</p>
+                    <a href="{{ article.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
+                </div>
+                <div class="card-footer text-muted">
+                    Posted on {{ article.created_at }} by
+                    <a href="#">{{ article.author }}</a>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>No article!</p>
+            {% endif %}
+            <!-- Pagination -->
+            <ul class="pagination justify-content-center mb-4">
+                <li class="page-item
                     {% if not page_obj.has_next %}
                             disabled
                         {% endif %}">
-                        <a class="page-link" href="
+                    <a class="page-link" href="
                             {% if page_obj.has_next %}
                                 ?page={{ page_obj.next_page_number }}
                             {% else %}
                                 #
                             {% endif %}">&larr; Older</a>
-                    </li>
-                    <li class="page-item
+                </li>
+                <li class="page-item
                         {% if not page_obj.has_previous %}
                             disabled
                         {% endif %}">
-                        <a class="page-link" href="
+                    <a class="page-link" href="
                             {% if page_obj.has_previous %}
                                     ?page={{ page_obj.previous_page_number }}
                             {% else %}
                                 #
                             {% endif %}">Newer &rarr;</a>
-                        </li>
-                    </ul>
-                {% endfor %}
-        
-            {% else %}
-                    <p>No article!</p>
-            {% endif %}
-            <!-- Pagination -->
-            
+                </li>
+            </ul>
 
         </div>
 
@@ -105,7 +103,8 @@
             <div class="card my-4">
                 <h5 class="card-header">Side Widget</h5>
                 <div class="card-body">
-                    You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+                    You can put anything you want inside of these side widgets. They are easy to use, and feature the
+                    new Bootstrap 4 card containers!
                 </div>
             </div>
 
