@@ -88,12 +88,12 @@ class ArticleCategoryView(ListView):
             queryset = queryset.filter(published=True, category=category.id)
         return queryset
 
+
 class ArticleSearchView(ListView):
     model = Article
     context_object_name = 'article_list'
     template_name = 'article_list.html'
     paginate_by = 4
-    queryset = Article.objects.filter(title__icontains='title')
 
     def get_context_data(self, **kwargs):
         context = super(ArticleSearchView, self).get_context_data(**kwargs)
@@ -103,4 +103,5 @@ class ArticleSearchView(ListView):
         return context
     
     def get_queryset(self):
-        return Article.objects.filter(Q(title__icontains='title') | Q(title__icontains='api'))
+        query = self.request.GET.get('q')
+        return Article.objects.filter(Q(title__icontains=query) | Q(body__icontains=query))
